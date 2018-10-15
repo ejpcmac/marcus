@@ -22,6 +22,25 @@ defmodule MarcusTest do
     end
   end
 
+  describe "success/1" do
+    property "prints the given message in bright green" do
+      check all message <- string(:printable) do
+        assert capture_io(fn -> success(message) end) ==
+                 ANSI.green() <>
+                   ANSI.bright() <> message <> ANSI.reset() <> "\n"
+      end
+    end
+  end
+
+  describe "notice/1" do
+    property "prints the given message in bright blue" do
+      check all message <- string(:printable) do
+        assert capture_io(fn -> notice(message) end) ==
+                 ANSI.blue() <> ANSI.bright() <> message <> ANSI.reset() <> "\n"
+      end
+    end
+  end
+
   describe "green_info/1" do
     property "prints the given message in green" do
       check all message <- string(:printable) do

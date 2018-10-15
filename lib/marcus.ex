@@ -61,6 +61,22 @@ defmodule Marcus do
   end
 
   @doc """
+  Prints the given ANSI-formatted `message` in bright blue.
+  """
+  @spec notice(ANSI.ansidata()) :: :ok
+  def notice(message) do
+    info([:blue, :bright, message])
+  end
+
+  @doc """
+  Prints the given ANSI-formatted `message` in bright green.
+  """
+  @spec success(ANSI.ansidata()) :: :ok
+  def success(message) do
+    info([:green, :bright, message])
+  end
+
+  @doc """
   Prints the given ANSI-formatted `message` in green.
   """
   @spec green_info(ANSI.ansidata()) :: :ok
