@@ -53,6 +53,14 @@ defmodule Marcus do
   @no ~w(n N no NO No)
 
   @doc """
+  Enables ANSI colors.
+  """
+  @spec enable_colors :: :ok
+  def enable_colors do
+    Application.put_env(:elixir, :ansi_enabled, true)
+  end
+
+  @doc """
   Prints the given ANSI-formatted `message`.
   """
   @spec info(ANSI.ansidata()) :: :ok

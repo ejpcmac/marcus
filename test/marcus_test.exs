@@ -7,6 +7,13 @@ defmodule MarcusTest do
 
   alias IO.ANSI
 
+  test "enable_colors/0 enables ANSI colors" do
+    Application.put_env(:elixir, :ansi_enabled, false)
+
+    assert enable_colors() == :ok
+    assert Application.get_env(:elixir, :ansi_enabled) == true
+  end
+
   describe "info/1" do
     property "prints the given message" do
       check all message <- string(:printable) do
