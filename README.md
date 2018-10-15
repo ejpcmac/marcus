@@ -8,7 +8,10 @@ Marcus is a library for writing interactive CLIs in Elixir.
 
 Marcus provides helpers for:
 
+* enabling ANSI colors,
 * printing ANSI-formatted information,
+* printing notices in bright blue,
+* printing success messages in brigh green,
 * printing information in green,
 * printing errors (in bright red, on `stderr`)
 * halting the VM with an error message and status.
@@ -52,7 +55,7 @@ choose("Make a choice:", item1: "Item 1", item2: "Item 2")
 To use Marcus in your project, add this to your Mix dependencies:
 
 ```elixir
-{:marcus, "~> 0.1.0"}
+{:marcus, "~> 0.1.1"}
 ```
 
 ## [Contributing](CONTRIBUTING.md)

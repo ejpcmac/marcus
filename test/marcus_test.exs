@@ -7,6 +7,13 @@ defmodule MarcusTest do
 
   alias IO.ANSI
 
+  test "enable_colors/0 enables ANSI colors" do
+    Application.put_env(:elixir, :ansi_enabled, false)
+
+    assert enable_colors() == :ok
+    assert Application.get_env(:elixir, :ansi_enabled) == true
+  end
+
   describe "info/1" do
     property "prints the given message" do
       check all message <- string(:printable) do
@@ -18,6 +25,25 @@ defmodule MarcusTest do
       check all message <- string(:printable) do
         assert capture_io(fn -> info([:red, message]) end) ==
                  ANSI.red() <> message <> ANSI.reset() <> "\n"
+      end
+    end
+  end
+
+  describe "success/1" do
+    property "prints the given message in bright green" do
+      check all message <- string(:printable) do
+        assert capture_io(fn -> success(message) end) ==
+                 ANSI.green() <>
+                   ANSI.bright() <> message <> ANSI.reset() <> "\n"
+      end
+    end
+  end
+
+  describe "notice/1" do
+    property "prints the given message in bright blue" do
+      check all message <- string(:printable) do
+        assert capture_io(fn -> notice(message) end) ==
+                 ANSI.blue() <> ANSI.bright() <> message <> ANSI.reset() <> "\n"
       end
     end
   end

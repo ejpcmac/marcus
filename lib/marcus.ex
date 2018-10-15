@@ -6,7 +6,10 @@ defmodule Marcus do
 
   Marcus provides helpers for:
 
+    * enabling ANSI colors,
     * printing ANSI-formatted information,
+    * printing notices in bright blue,
+    * printing success messages in brigh green,
     * printing information in green,
     * printing errors (in bright red, on `stderr`)
     * halting the VM with an error message and status.
@@ -53,11 +56,35 @@ defmodule Marcus do
   @no ~w(n N no NO No)
 
   @doc """
+  Enables ANSI colors.
+  """
+  @spec enable_colors :: :ok
+  def enable_colors do
+    Application.put_env(:elixir, :ansi_enabled, true)
+  end
+
+  @doc """
   Prints the given ANSI-formatted `message`.
   """
   @spec info(ANSI.ansidata()) :: :ok
   def info(message) do
     message |> ANSI.format() |> IO.puts()
+  end
+
+  @doc """
+  Prints the given ANSI-formatted `message` in bright blue.
+  """
+  @spec notice(ANSI.ansidata()) :: :ok
+  def notice(message) do
+    info([:blue, :bright, message])
+  end
+
+  @doc """
+  Prints the given ANSI-formatted `message` in bright green.
+  """
+  @spec success(ANSI.ansidata()) :: :ok
+  def success(message) do
+    info([:green, :bright, message])
   end
 
   @doc """
