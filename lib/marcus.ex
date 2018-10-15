@@ -6,7 +6,10 @@ defmodule Marcus do
 
   Marcus provides helpers for:
 
+    * enabling ANSI colors,
     * printing ANSI-formatted information,
+    * printing notices in bright blue,
+    * printing success messages in brigh green,
     * printing information in green,
     * printing errors (in bright red, on `stderr`)
     * halting the VM with an error message and status.
