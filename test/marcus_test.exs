@@ -65,6 +65,19 @@ defmodule MarcusTest do
       end
     end
 
+    property "prints on stdout instead if :stderr is set to false" do
+      Application.put_env(:marcus, :stderr, false)
+
+      on_exit(fn ->
+        Application.put_env(:marcus, :stderr, true)
+      end)
+
+      check all message <- string(:printable) do
+        assert capture_io(fn -> error(message) end) ==
+                 ANSI.red() <> ANSI.bright() <> message <> ANSI.reset() <> "\n"
+      end
+    end
+
     property "formats the message" do
       check all message <- string(:printable) do
         assert capture_io(:stderr, fn -> error([:blue, message]) end) ==

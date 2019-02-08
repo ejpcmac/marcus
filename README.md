@@ -1,5 +1,6 @@
 # Marcus
 
+[![Build Status](https://travis-ci.com/ejpcmac/marcus.svg?branch=develop)](https://travis-ci.com/ejpcmac/marcus)
 [![hex.pm version](http://img.shields.io/hexpm/v/marcus.svg?style=flat)](https://hex.pm/packages/marcus)
 
 Marcus is a library for writing interactive CLIs in Elixir.
@@ -55,7 +56,7 @@ choose("Make a choice:", item1: "Item 1", item2: "Item 2")
 To use Marcus in your project, add this to your Mix dependencies:
 
 ```elixir
-{:marcus, "~> 0.1.1"}
+{:marcus, "~> 0.1.2"}
 ```
 
 ## [Contributing](CONTRIBUTING.md)
@@ -65,6 +66,6 @@ Before contributing to this project, please read the
 
 ## License
 
-Copyright © 2018 Jean-Philippe Cugnet
+Copyright © 2018-2019 Jean-Philippe Cugnet
 
 This project is licensed under the [MIT license](LICENSE).

@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.1.2
+
+### New features
+
+* Allow to disable the usage of `stderr`
+
+### Bug fixes
+
+* Accept charlists as input
+
 ## v0.1.1
 
 ### New features
