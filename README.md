@@ -1,5 +1,6 @@
 # Marcus
 
+[![Build Status](https://travis-ci.com/ejpcmac/marcus.svg?branch=develop)](https://travis-ci.com/ejpcmac/marcus)
 [![hex.pm version](http://img.shields.io/hexpm/v/marcus.svg?style=flat)](https://hex.pm/packages/marcus)
 
 Marcus is a library for writing interactive CLIs in Elixir.
