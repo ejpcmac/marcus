@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.1.2-dev
+
+### Bug fixes
+
+* Accept charlists as input
+
 ## v0.1.1
 
 ### New features

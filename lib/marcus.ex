@@ -155,6 +155,7 @@ defmodule Marcus do
   def prompt_string(message, opts \\ []) do
     (message <> format_length(opts[:length]) <> format_default(opts[:default]))
     |> IO.gets()
+    |> IO.iodata_to_binary()
     |> String.trim()
     |> parse_response(opts[:default], !!opts[:required])
     |> case do
@@ -283,6 +284,7 @@ defmodule Marcus do
   def yes?(message, opts \\ []) do
     (message <> format_yesno(opts[:default]))
     |> IO.gets()
+    |> IO.iodata_to_binary()
     |> String.trim()
     |> parse_yesno(opts[:default])
     |> case do
