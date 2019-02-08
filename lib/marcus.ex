@@ -45,6 +45,13 @@ defmodule Marcus do
       #
       # Choice: 2
       # => :item2
+
+  ## Disabling `stderr`
+
+  Errors are printed on `stderr` by default, but sometimes you may want to use
+  `stdout` instead. You can do so by adding to your configuration:
+
+      config :marcus, stderr: false
   """
 
   alias IO.ANSI
@@ -100,7 +107,12 @@ defmodule Marcus do
   """
   @spec error(ANSI.ansidata()) :: :ok
   def error(message) do
-    IO.puts(:stderr, ANSI.format([:red, :bright, message]))
+    device =
+      if Application.get_env(:marcus, :stderr, true),
+        do: :stderr,
+        else: :stdio
+
+    IO.puts(device, ANSI.format([:red, :bright, message]))
   end
 
   @doc """

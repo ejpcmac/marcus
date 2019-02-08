@@ -2,6 +2,10 @@
 
 ## v0.1.2-dev
 
+### New features
+
+* Allow to disable the usage of `stderr`
+
 ### Bug fixes
 
 * Accept charlists as input
