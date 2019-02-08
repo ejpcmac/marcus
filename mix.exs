@@ -7,7 +7,7 @@ defmodule Marcus.MixProject do
   def project do
     [
       app: :marcus,
-      version: @version <> dev(),
+      version: @version,
       elixir: "~> 1.5",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
